@@ -15,30 +15,40 @@
       title: "Cliff Path Walk",
       body: "A fynbos-lined trail hugging the cliff edge, best walked at sunset.",
       img: "images/exp-cliff-path.jpg",
+      w: 900,
+      h: 506,
     },
     {
       kicker: "Low Tide",
       title: "The Tidal Pools",
       body: "Anemones, urchins, and mirror-still rockpools ten minutes from your door.",
       img: "images/exp-tidal-flat.jpg",
+      w: 666,
+      h: 1000,
     },
     {
       kicker: "Harbour Light",
       title: "Old Harbour",
       body: "The town's original slipway and working boats, still in use today.",
       img: "images/exp-lighthouse.jpg",
+      w: 666,
+      h: 1000,
     },
     {
       kicker: "Jun – Dec",
       title: "Whale-Watching Deck",
       body: "Southern Right whales breach close enough to hear from our private deck.",
       img: "images/exp-whale-tail.jpg",
+      w: 900,
+      h: 600,
     },
     {
       kicker: "Sundowners",
       title: "The Terrace",
       body: "Fynbos gin, ocean light, and the best sunset seat in Hermanus.",
       img: "images/exp-terrace.jpg",
+      w: 900,
+      h: 600,
     },
   ];
 
@@ -54,7 +64,10 @@
     card.setAttribute("aria-label", `Open ${exp.title}`);
     card.dataset.slideIndex = String(index);
     card.innerHTML = `
-      <img class="card-media" src="${exp.img}" alt="" loading="lazy" />
+      <picture>
+        <source srcset="${exp.img.replace(".jpg", ".webp")}" type="image/webp" />
+        <img class="card-media" src="${exp.img}" alt="" loading="lazy" width="${exp.w}" height="${exp.h}" />
+      </picture>
       <div class="card-scrim"></div>
       <div class="card-body">
         <span class="exp-kicker">${exp.kicker}</span>

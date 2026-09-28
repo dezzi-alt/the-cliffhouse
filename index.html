@@ -5,11 +5,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Cliffhouse — Boutique Clifftop Guesthouse, Hermanus</title>
 <meta name="description" content="A restored clifftop guesthouse above Walker Bay, Hermanus — seven rooms, a private whale-watching deck, and the best sunset seat on the Cape coast." />
+<link rel="canonical" href="https://dezzi-alt.github.io/the-cliffhouse/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Cliffhouse" />
+<meta property="og:title" content="The Cliffhouse — Boutique Clifftop Guesthouse, Hermanus" />
+<meta property="og:description" content="A restored clifftop guesthouse above Walker Bay, Hermanus — seven rooms, a private whale-watching deck, and the best sunset seat on the Cape coast." />
+<meta property="og:url" content="https://dezzi-alt.github.io/the-cliffhouse/" />
+<meta property="og:image" content="https://dezzi-alt.github.io/the-cliffhouse/images/sky-aerial-coastline.jpg" />
+<meta property="og:image:width" content="2000" />
+<meta property="og:image:height" content="1125" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Cliffhouse — Boutique Clifftop Guesthouse, Hermanus" />
+<meta name="twitter:description" content="A restored clifftop guesthouse above Walker Bay, Hermanus — seven rooms, a private whale-watching deck, and the best sunset seat on the Cape coast." />
+<meta name="twitter:image" content="https://dezzi-alt.github.io/the-cliffhouse/images/sky-aerial-coastline.jpg" />
+
 <link rel="icon" href="data:," />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/styles.css" />
+<link rel="preload" as="image" href="images/sky-aerial-coastline.webp" type="image/webp" fetchpriority="high" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "The Cliffhouse",
+  "description": "A restored clifftop guesthouse above Walker Bay, Hermanus — seven rooms, a private whale-watching deck, and the best sunset seat on the Cape coast.",
+  "url": "https://dezzi-alt.github.io/the-cliffhouse/",
+  "image": "https://dezzi-alt.github.io/the-cliffhouse/images/sky-aerial-coastline.jpg",
+  "telephone": "+27283121234",
+  "priceRange": "R2,950 - R4,100",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Cliff Road",
+    "addressLocality": "Hermanus",
+    "addressRegion": "Western Cape",
+    "postalCode": "7200",
+    "addressCountry": "ZA"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -21,7 +57,10 @@
     <div class="stage">
       <div class="world">
 
-        <img class="scene-img sky-img" src="images/sky-aerial-coastline.jpg" alt="" loading="eager" />
+        <picture>
+          <source srcset="images/sky-aerial-coastline.webp" type="image/webp" />
+          <img class="scene-img sky-img" src="images/sky-aerial-coastline.jpg" alt="" loading="eager" fetchpriority="high" width="2000" height="1125" />
+        </picture>
 
         <header class="site-header" aria-label="Primary navigation">
           <a class="site-logo" href="#cinema">The Cliffhouse</a>
@@ -35,7 +74,10 @@
         </header>
 
         <div class="back-stack">
-          <img class="scene-img back-img" src="images/cliff-ocean-view.jpg" alt="" loading="eager" />
+          <picture>
+            <source srcset="images/cliff-ocean-view.webp" type="image/webp" />
+            <img class="scene-img back-img" src="images/cliff-ocean-view.jpg" alt="" loading="eager" width="2000" height="1500" />
+          </picture>
         </div>
 
         <section class="experiences-slider" id="experiences" aria-label="Hermanus experiences slider">
@@ -49,10 +91,22 @@
 
         <h1 class="hero-title">THE CLIFFHOUSE</h1>
 
-        <img class="scene-img splitframe-img splitframe-left" src="images/cliff-path-golden-left.jpg" alt="" />
-        <img class="scene-img splitframe-img splitframe-right" src="images/cliff-path-golden-right.jpg" alt="" />
-        <img class="scene-img hero-focal-img" src="images/whale-breach-hero.jpg" alt="" />
-        <img class="scene-img frame-two-img" src="images/tidal-pool-closeup.jpg" alt="" />
+        <picture>
+          <source srcset="images/cliff-path-golden-left.webp" type="image/webp" />
+          <img class="scene-img splitframe-img splitframe-left" src="images/cliff-path-golden-left.jpg" alt="" loading="lazy" width="1012" height="1800" />
+        </picture>
+        <picture>
+          <source srcset="images/cliff-path-golden-right.webp" type="image/webp" />
+          <img class="scene-img splitframe-img splitframe-right" src="images/cliff-path-golden-right.jpg" alt="" loading="lazy" width="1600" height="1067" />
+        </picture>
+        <picture>
+          <source srcset="images/whale-breach-hero.webp" type="image/webp" />
+          <img class="scene-img hero-focal-img" src="images/whale-breach-hero.jpg" alt="" loading="lazy" width="1333" height="2000" />
+        </picture>
+        <picture>
+          <source srcset="images/tidal-pool-closeup.webp" type="image/webp" />
+          <img class="scene-img frame-two-img" src="images/tidal-pool-closeup.jpg" alt="" loading="lazy" width="1333" height="2000" />
+        </picture>
 
         <section class="intro-copy" aria-label="The Cliffhouse overview">
           <p>A restored clifftop retreat above Walker Bay. Seven rooms, one deck, and a front-row seat to the whale road.</p>
@@ -99,7 +153,10 @@
         <h2 class="section-title">A fisherman's cottage, reborn on the cliff edge.</h2>
         <p class="section-lede">The Cliffhouse began as a single stone cottage on the Hermanus cliff path, restored room by room until it became seven. We kept the bones: thick walls, small-paned windows, a view that hasn't changed in a century. We added the rest: linen the colour of sand, water heated by the sun, a deck built for watching the bay. Every room faces the water. Every stay starts with the walk down from the road.</p>
       </div>
-      <img src="images/rocky-shore.jpg" alt="Rocky Hermanus shoreline below the cliff path" loading="lazy" width="1600" height="1200" />
+      <picture>
+        <source srcset="images/rocky-shore.webp" type="image/webp" />
+        <img src="images/rocky-shore.jpg" alt="Rocky Hermanus shoreline below the cliff path" loading="lazy" width="960" height="1200" />
+      </picture>
     </div>
   </section>
 
@@ -111,7 +168,10 @@
 
       <div class="rooms-grid">
         <a class="room-card" href="rooms.html#whale-room">
-          <img src="images/room-whale-bedroom.jpg" alt="The Whale Room, a bedroom with full ocean views" loading="lazy" width="1800" height="1200" />
+          <picture>
+            <source srcset="images/room-whale-bedroom.webp" type="image/webp" />
+            <img src="images/room-whale-bedroom.jpg" alt="The Whale Room, a bedroom with full ocean views" loading="lazy" width="1300" height="866" />
+          </picture>
           <div class="room-card-body">
             <h3>The Whale Room</h3>
             <p>Front-row deck access and the widest bay view in the house.</p>
@@ -119,7 +179,10 @@
           </div>
         </a>
         <a class="room-card" href="rooms.html#fynbos-suite">
-          <img src="images/room-fynbos-bedroom.jpg" alt="The Fynbos Suite, a bedroom overlooking the ocean" loading="lazy" width="1800" height="1200" />
+          <picture>
+            <source srcset="images/room-fynbos-bedroom.webp" type="image/webp" />
+            <img src="images/room-fynbos-bedroom.jpg" alt="The Fynbos Suite, a bedroom overlooking the ocean" loading="lazy" width="1300" height="975" />
+          </picture>
           <div class="room-card-body">
             <h3>The Fynbos Suite</h3>
             <p>Our largest room, opening onto its own private fynbos terrace.</p>
@@ -127,7 +190,10 @@
           </div>
         </a>
         <a class="room-card" href="rooms.html#harbour-view">
-          <img src="images/room-harbour-bedroom.jpg" alt="The Harbour View room with water-facing bed" loading="lazy" width="1800" height="1200" />
+          <picture>
+            <source srcset="images/room-harbour-bedroom.webp" type="image/webp" />
+            <img src="images/room-harbour-bedroom.jpg" alt="The Harbour View room with water-facing bed" loading="lazy" width="1300" height="866" />
+          </picture>
           <div class="room-card-body">
             <h3>The Harbour View</h3>
             <p>A quieter room angled toward the Old Harbour lights.</p>
@@ -143,12 +209,12 @@
       <span class="section-kicker">Gallery</span>
       <h2 class="section-title">The coast, from the cliff path.</h2>
       <ul class="gallery-grid">
-        <li><img src="images/cliff-ocean-view.jpg" alt="View of the ocean from the Hermanus cliff path" loading="lazy" width="2400" height="1600" /></li>
-        <li><img src="images/gallery-sea-stacks.jpg" alt="Coastal cliffs and sea stacks at sunset" loading="lazy" width="1600" height="1067" /></li>
-        <li><img src="images/tidal-pool-closeup.jpg" alt="Close-up of a rocky tidal pool" loading="lazy" width="2000" height="1333" /></li>
-        <li><img src="images/gallery-calm-shore-tree.jpg" alt="Calm sea beside a rocky shore" loading="lazy" width="1600" height="1067" /></li>
-        <li><img src="images/gallery-lounge-ocean.jpg" alt="Lounge seating facing the ocean" loading="lazy" width="1600" height="1067" /></li>
-        <li><img src="images/exp-cliff-path.jpg" alt="Narrow grassy path along the cliffside" loading="lazy" width="1200" height="800" /></li>
+        <li><picture><source srcset="images/cliff-ocean-view-thumb.webp" type="image/webp" /><img src="images/cliff-ocean-view-thumb.jpg" alt="View of the ocean from the Hermanus cliff path" loading="lazy" width="800" height="600" /></picture></li>
+        <li><picture><source srcset="images/gallery-sea-stacks.webp" type="image/webp" /><img src="images/gallery-sea-stacks.jpg" alt="Coastal cliffs and sea stacks at sunset" loading="lazy" width="1000" height="667" /></picture></li>
+        <li><picture><source srcset="images/tidal-pool-closeup-thumb.webp" type="image/webp" /><img src="images/tidal-pool-closeup-thumb.jpg" alt="Close-up of a rocky tidal pool" loading="lazy" width="533" height="800" /></picture></li>
+        <li><picture><source srcset="images/gallery-calm-shore-tree.webp" type="image/webp" /><img src="images/gallery-calm-shore-tree.jpg" alt="Calm sea beside a rocky shore" loading="lazy" width="1000" height="667" /></picture></li>
+        <li><picture><source srcset="images/gallery-lounge-ocean.webp" type="image/webp" /><img src="images/gallery-lounge-ocean.jpg" alt="Lounge seating facing the ocean" loading="lazy" width="666" height="1000" /></picture></li>
+        <li><picture><source srcset="images/exp-cliff-path.webp" type="image/webp" /><img src="images/exp-cliff-path.jpg" alt="Narrow grassy path along the cliffside" loading="lazy" width="900" height="506" /></picture></li>
       </ul>
     </div>
   </section>

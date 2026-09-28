@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dezzi-alt.github.io/the-cliffhouse/sitemap.xml
