@@ -52,7 +52,8 @@
   .room-detail p.desc { font-size: 1.05rem; line-height: 1.55; max-width: 520px; }
   .amenities { list-style: none; padding: 0; margin: 24px 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; max-width: 480px; }
   .amenities li { font-size: 0.95rem; padding-left: 20px; position: relative; }
-  .amenities li::before { content: "\2713"; position: absolute; left: 0; color: var(--ocean); font-weight: 700; }
+  .amenities li::before { content: "\2713"; position: absolute; left: 0; color: var(--sand); font-weight: 700; }
+  .room-detail:nth-child(even) .amenities li::before { color: var(--ocean); }
   .room-cta {
     display: inline-flex;
     align-items: center;
