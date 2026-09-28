@@ -86,7 +86,10 @@
       EXPERIENCES.forEach((exp, cardIndex) => {
         const globalIndex = setIndex * originalCount + cardIndex;
         const card = buildCard(exp, globalIndex);
-        card.addEventListener("click", () => selectSlide(card));
+        card.addEventListener("click", () => {
+          if (isSliderClickSuppressed()) return;
+          selectSlide(card);
+        });
         card.addEventListener("keydown", (event) => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
@@ -145,6 +148,83 @@
 
   if (prevBtn) prevBtn.addEventListener("click", () => moveSlider(-1));
   if (nextBtn) nextBtn.addEventListener("click", () => moveSlider(1));
+
+  // ---- drag / swipe / trackpad scrolling ----
+
+  function getStepPx() {
+    if (!sliderCards.length) return 0;
+    const cardWidth = sliderCards[0].offsetWidth;
+    const gap = parseFloat(getComputedStyle(track).columnGap || "0");
+    return cardWidth + gap;
+  }
+
+  let isDragging = false;
+  let dragMoved = false;
+  let dragStartX = 0;
+  let dragStartShift = 0;
+
+  function onPointerDown(event) {
+    if (!sliderCards.length) return;
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    isDragging = true;
+    dragMoved = false;
+    dragStartX = event.clientX;
+    dragStartShift = -getStepPx() * activeSlide;
+    track.classList.add("is-dragging");
+    track.setPointerCapture(event.pointerId);
+  }
+
+  function onPointerMove(event) {
+    if (!isDragging) return;
+    const deltaX = event.clientX - dragStartX;
+    if (Math.abs(deltaX) > 4) dragMoved = true;
+    root.style.setProperty("--slider-shift", `${dragStartShift + deltaX}px`);
+  }
+
+  function onPointerUp(event) {
+    if (!isDragging) return;
+    isDragging = false;
+    track.classList.remove("is-dragging");
+    const deltaX = event.clientX - dragStartX;
+    const step = getStepPx();
+    if (step > 0 && Math.abs(deltaX) > step * 0.18) {
+      activeSlide += deltaX < 0 ? 1 : -1;
+    }
+    updateSlider();
+  }
+
+  if (track) {
+    track.addEventListener("pointerdown", onPointerDown);
+    track.addEventListener("pointermove", onPointerMove);
+    track.addEventListener("pointerup", onPointerUp);
+    track.addEventListener("pointercancel", onPointerUp);
+    track.addEventListener("dragstart", (event) => event.preventDefault());
+
+    let wheelAccum = 0;
+    let wheelResetTimer;
+    track.addEventListener(
+      "wheel",
+      (event) => {
+        const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.shiftKey ? event.deltaY : 0;
+        if (delta === 0) return;
+        event.preventDefault();
+        wheelAccum += delta;
+        clearTimeout(wheelResetTimer);
+        wheelResetTimer = setTimeout(() => {
+          wheelAccum = 0;
+        }, 150);
+        if (Math.abs(wheelAccum) > 60) {
+          moveSlider(wheelAccum > 0 ? 1 : -1);
+          wheelAccum = 0;
+        }
+      },
+      { passive: false }
+    );
+  }
+
+  function isSliderClickSuppressed() {
+    return dragMoved;
+  }
 
   // ---- scroll/pointer engine ----
 
