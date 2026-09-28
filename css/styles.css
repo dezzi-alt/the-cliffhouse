@@ -26,6 +26,7 @@
   --focal-bottom: 6vh;
   --focal-width: 58vw;
   --focal-scale: 1.02;
+  --focal-opacity: 0;
 
   --split-left-x: -50%;
   --split-left-y: 0px;
@@ -33,6 +34,7 @@
   --split-right-x: -50%;
   --split-right-y: 0px;
   --split-right-scale: 1;
+  --split-opacity: 0;
 
   --frame2-opacity: 0;
   --frame2-x: -50%;
@@ -264,6 +266,8 @@ h1, h2, h3 {
   box-shadow: 0 40px 90px rgba(0, 0, 0, 0.35);
 }
 
+.splitframe-img { opacity: var(--split-opacity); }
+
 .splitframe-left {
   transform: translate3d(var(--split-left-x), var(--split-left-y), 0) scale(var(--split-left-scale));
   transform-origin: 30% 60%;
@@ -284,6 +288,7 @@ h1, h2, h3 {
   border-radius: 14px;
   z-index: 4;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+  opacity: var(--focal-opacity);
   transform: translate3d(var(--focal-x), var(--focal-y), 0) scale(var(--focal-scale));
   transform-origin: 50% 60%;
 }

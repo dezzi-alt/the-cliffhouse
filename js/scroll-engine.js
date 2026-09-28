@@ -193,9 +193,12 @@
     const village = segmentInOut(smoothScroll, 1900, 2300, 2650, 2850);
     const progress = clamp(smoothScroll / 2850);
     const introExit = smoothstep(90, 650, smoothScroll);
-    const sliderEnterRaw = smoothstep(2900, 3560, smoothScroll);
+    const heroEnter = smoothstep(0, 480, smoothScroll);
+    const heroEnterLift = (1 - heroEnter) * 140;
+    const sliderEnterRaw = smoothstep(2900, 3200, smoothScroll);
     const sliderEnter = Math.pow(sliderEnterRaw, 1.55);
-    const sliderControlsEnter = smoothstep(3360, 3660, smoothScroll);
+    const sliderControlsEnter = smoothstep(3150, 3300, smoothScroll);
+    const foregroundFade = 1 - smoothstep(2600, 2900, smoothScroll);
 
     const blurActive = clamp(reveal.active + village.active);
     const frame2Opacity = reveal.active * (1 - village.enter);
@@ -230,17 +233,19 @@
     style.setProperty("--title-scale", (1 - introExit * 0.08).toFixed(4));
     style.setProperty("--title-opacity", (1 - introExit).toFixed(4));
 
+    style.setProperty("--focal-opacity", (heroEnter * foregroundFade).toFixed(4));
     style.setProperty("--focal-x", `calc(-50% + ${mx * 16}px)`);
-    style.setProperty("--focal-y", `${my * 8 + sharedHeroY - reveal.exit * 680}px`);
+    style.setProperty("--focal-y", `${my * 8 + sharedHeroY + heroEnterLift - reveal.exit * 680}px`);
     style.setProperty("--focal-bottom", `${6 - reveal.enter * 12}vh`);
     style.setProperty("--focal-width", `${58 + reveal.enter * 28}vw`);
     style.setProperty("--focal-scale", (1.02 + sharedHeroScale + reveal.exit * 0.4).toFixed(4));
 
+    style.setProperty("--split-opacity", (heroEnter * foregroundFade).toFixed(4));
     style.setProperty("--split-left-x", `calc(-50% + ${-splitDrift * 42}vw + ${mx * 20}px)`);
-    style.setProperty("--split-left-y", `${my * 10 + sharedHeroY - splitDrift * 160}px`);
+    style.setProperty("--split-left-y", `${my * 10 + sharedHeroY + heroEnterLift - splitDrift * 160}px`);
     style.setProperty("--split-left-scale", (1 + sharedHeroScale + reveal.enter * 0.6).toFixed(4));
     style.setProperty("--split-right-x", `calc(-50% + ${splitDrift * 42}vw + ${mx * 20}px)`);
-    style.setProperty("--split-right-y", `${my * 10 + sharedHeroY - splitDrift * 160}px`);
+    style.setProperty("--split-right-y", `${my * 10 + sharedHeroY + heroEnterLift - splitDrift * 160}px`);
     style.setProperty("--split-right-scale", (1 + sharedHeroScale + reveal.enter * 0.6).toFixed(4));
 
     style.setProperty("--frame2-opacity", frame2Opacity.toFixed(4));
