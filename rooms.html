@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rooms — The Cliffhouse, Hermanus</title>
+<meta name="description" content="Three rooms at The Cliffhouse, Hermanus — The Whale Room, The Fynbos Suite, and The Harbour View. Full amenities and nightly rates." />
+<link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  .rooms-page-header {
+    position: relative;
+    padding: 140px clamp(24px, 6vw, 80px) 80px;
+    background: var(--ocean-deep);
+    color: var(--paper);
+  }
+  .rooms-page-header .site-header { position: static; padding: 0; margin-bottom: 64px; }
+  .rooms-page-header h1 { font-size: clamp(2.4rem, 6vw, 4rem); max-width: 720px; }
+  .rooms-page-header p { max-width: 560px; font-size: 1.1rem; line-height: 1.5; margin-top: 20px; color: rgba(247,241,228,0.85); }
+
+  .room-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 72px);
+    align-items: start;
+    padding: clamp(56px, 8vw, 96px) clamp(24px, 6vw, 80px);
+    scroll-margin-top: 40px;
+  }
+  .room-detail:nth-child(even) { background: #efe6d3; }
+  .room-detail img { width: 100%; height: 460px; object-fit: cover; border-radius: 20px; }
+  .room-detail h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 8px; }
+  .room-detail .room-price { display: block; font-size: 1.2rem; font-weight: 600; color: var(--ocean); margin: 8px 0 20px; }
+  .room-detail p.desc { font-size: 1.05rem; line-height: 1.55; max-width: 520px; }
+  .amenities { list-style: none; padding: 0; margin: 24px 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; max-width: 480px; }
+  .amenities li { font-size: 0.95rem; padding-left: 20px; position: relative; }
+  .amenities li::before { content: "\2713"; position: absolute; left: 0; color: var(--ocean); font-weight: 700; }
+  .room-cta {
+    display: inline-flex;
+    align-items: center;
+    min-height: 50px;
+    padding: 0 28px;
+    border-radius: 999px;
+    background: var(--terracotta);
+    color: var(--paper);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  @media (max-width: 900px) {
+    .room-detail { grid-template-columns: 1fr; }
+    .room-detail img { height: 320px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="rooms-page-header">
+  <header class="site-header" aria-label="Primary navigation">
+    <a class="site-logo" href="index.html#cinema">The Cliffhouse</a>
+    <nav class="site-nav" aria-label="Main menu">
+      <a href="index.html#cinema">Home</a>
+      <a href="index.html#experiences">Experiences</a>
+      <a href="rooms.html">Rooms</a>
+      <a href="index.html#location">Location</a>
+    </nav>
+    <button class="book-now-nav" type="button" data-open-modal>Book Now</button>
+  </header>
+  <h1>Seven rooms. Three you can browse here.</h1>
+  <p>Every room at The Cliffhouse faces Walker Bay. These three are our most requested — the rest are shown on request when you enquire.</p>
+</div>
+
+<main>
+  <section class="room-detail" id="whale-room" aria-label="The Whale Room">
+    <img src="images/room-whale-bedroom.jpg" alt="The Whale Room, a bedroom with full ocean views" loading="lazy" width="1800" height="1200" />
+    <div>
+      <h2>The Whale Room</h2>
+      <span class="room-price">R3,450 / night</span>
+      <p class="desc">Our closest room to the deck, with a private step-out balcony and the widest uninterrupted view of the bay. During whale season, guests here rarely close the curtains.</p>
+      <ul class="amenities">
+        <li>King bed, sea-facing</li>
+        <li>Private step-out balcony</li>
+        <li>Underfloor heating</li>
+        <li>Solar-heated en-suite</li>
+        <li>Nespresso &amp; fynbos tea</li>
+        <li>Fibre Wi-Fi</li>
+      </ul>
+      <button class="room-cta" type="button" data-open-modal data-room="whale-room">Book The Whale Room</button>
+    </div>
+  </section>
+
+  <section class="room-detail" id="fynbos-suite" aria-label="The Fynbos Suite">
+    <img src="images/room-fynbos-bedroom.jpg" alt="The Fynbos Suite, a bedroom overlooking the ocean" loading="lazy" width="1800" height="1200" />
+    <div>
+      <h2>The Fynbos Suite</h2>
+      <span class="room-price">R4,100 / night</span>
+      <p class="desc">The largest room in the house, with a separate sitting area and a private terrace planted with indigenous fynbos. Built for guests staying a week, not a night.</p>
+      <ul class="amenities">
+        <li>King bed + sitting area</li>
+        <li>Private fynbos terrace</li>
+        <li>Freestanding bath</li>
+        <li>Underfloor heating</li>
+        <li>Nespresso &amp; fynbos tea</li>
+        <li>Fibre Wi-Fi</li>
+      </ul>
+      <button class="room-cta" type="button" data-open-modal data-room="fynbos-suite">Book The Fynbos Suite</button>
+    </div>
+  </section>
+
+  <section class="room-detail" id="harbour-view" aria-label="The Harbour View">
+    <img src="images/room-harbour-bedroom.jpg" alt="The Harbour View room with water-facing bed" loading="lazy" width="1800" height="1200" />
+    <div>
+      <h2>The Harbour View</h2>
+      <span class="room-price">R2,950 / night</span>
+      <p class="desc">A quieter room at the end of the passage, angled toward the Old Harbour lights rather than the open bay. Our best value room, and the favourite of returning guests.</p>
+      <ul class="amenities">
+        <li>Queen bed, harbour-facing</li>
+        <li>Reading nook</li>
+        <li>Solar-heated en-suite</li>
+        <li>Underfloor heating</li>
+        <li>Nespresso &amp; fynbos tea</li>
+        <li>Fibre Wi-Fi</li>
+      </ul>
+      <button class="room-cta" type="button" data-open-modal data-room="harbour-view">Book The Harbour View</button>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <a class="site-logo" href="index.html#cinema">The Cliffhouse</a>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="index.html#cinema">Home</a>
+      <a href="rooms.html">Rooms</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#location">Location</a>
+    </nav>
+  </div>
+  <p class="footer-bottom">&copy; 2026 The Cliffhouse, Hermanus. A fictional guesthouse built as a design demo.</p>
+</footer>
+
+<div class="modal-overlay" id="booking-modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+    <button class="modal-close" type="button" data-close-modal aria-label="Close booking form">&times;</button>
+
+    <form id="booking-form">
+      <h2 id="booking-modal-title">Check availability</h2>
+      <p>Tell us your dates and we'll confirm within 24 hours.</p>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="checkin">Check-in</label>
+          <input type="date" id="checkin" name="checkin" required />
+        </div>
+        <div class="form-field">
+          <label for="checkout">Check-out</label>
+          <input type="date" id="checkout" name="checkout" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="guests">Guests</label>
+          <input type="number" id="guests" name="guests" min="1" max="6" value="2" required />
+        </div>
+        <div class="form-field">
+          <label for="room">Room</label>
+          <select id="room" name="room">
+            <option value="whale-room">The Whale Room</option>
+            <option value="fynbos-suite">The Fynbos Suite</option>
+            <option value="harbour-view">The Harbour View</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required />
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required />
+      </div>
+
+      <button class="form-submit" type="submit">Request booking</button>
+    </form>
+
+    <div class="form-confirmation" id="booking-confirmation" hidden>
+      <h2>Thank you.</h2>
+      <p>A member of our team will confirm availability within 24 hours.</p>
+      <button class="form-submit" type="button" data-close-modal>Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/site.js" defer></script>
+</body>
+</html>
