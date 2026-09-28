@@ -1,8 +1,5 @@
 /* ===== The Cliffhouse — design tokens ===== */
 :root {
-  --mx: 0;
-  --my: 0;
-
   --back-opacity: 1;
   --back-x: 0px;
   --back-y: 0px;
@@ -49,7 +46,6 @@
   --panel-village-opacity: 0;
   --panel-village-y: calc(-50% + 58px);
 
-  --slider-opacity: 0;
   --slider-controls-opacity: 0;
   --slider-visibility: hidden;
   --slider-enter-x: 420vw;
@@ -69,10 +65,6 @@
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--paper);
   background: var(--ocean-deep);
-}
-
-@font-face {
-  font-display: swap;
 }
 
 * { box-sizing: border-box; }

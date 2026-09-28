@@ -213,9 +213,6 @@
     const my = reduceMotion.matches ? 0 : mouseY;
 
     const style = root.style;
-    style.setProperty("--mx", mx.toFixed(4));
-    style.setProperty("--my", my.toFixed(4));
-
     style.setProperty("--back-opacity", (1 - reveal.active * 0.06).toFixed(4));
     style.setProperty("--back-x", `${mx * -12}px`);
     style.setProperty("--back-y", `${my * -4}px`);
@@ -261,7 +258,6 @@
     style.setProperty("--panel-village-opacity", panelVillageOpacity.toFixed(4));
     style.setProperty("--panel-village-y", `calc(-50% + ${-village.exit * 80 + (1 - village.enter) * 58}px)`);
 
-    style.setProperty("--slider-opacity", sliderEnter.toFixed(4));
     style.setProperty("--slider-controls-opacity", sliderControlsEnter.toFixed(4));
     if (sliderControls) sliderControls.classList.toggle("is-ready", sliderControlsEnter > 0.98);
     style.setProperty("--slider-visibility", sliderEnter > 0.01 ? "visible" : "hidden");
