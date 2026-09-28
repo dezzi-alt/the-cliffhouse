@@ -32,7 +32,8 @@
   .room-detail:nth-child(even) { background: #efe6d3; color: var(--ink); }
   .room-detail img { width: 100%; height: 460px; object-fit: cover; border-radius: 20px; }
   .room-detail h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 8px; }
-  .room-detail .room-price { display: block; font-size: 1.2rem; font-weight: 600; color: var(--ocean); margin: 8px 0 20px; }
+  .room-detail .room-price { display: block; font-size: 1.2rem; font-weight: 600; color: var(--sand); margin: 8px 0 20px; }
+  .room-detail:nth-child(even) .room-price { color: var(--ocean); }
   .room-detail p.desc { font-size: 1.05rem; line-height: 1.55; max-width: 520px; }
   .amenities { list-style: none; padding: 0; margin: 24px 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; max-width: 480px; }
   .amenities li { font-size: 0.95rem; padding-left: 20px; position: relative; }
@@ -56,6 +57,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <div class="rooms-page-header">
   <header class="site-header" aria-label="Primary navigation">
     <a class="site-logo" href="index.html#cinema">The Cliffhouse</a>
@@ -71,7 +74,7 @@
   <p>Every room at The Cliffhouse faces Walker Bay. These three are our most requested — the rest are shown on request when you enquire.</p>
 </div>
 
-<main>
+<main id="main-content">
   <section class="room-detail" id="whale-room" aria-label="The Whale Room">
     <img src="images/room-whale-bedroom.jpg" alt="The Whale Room, a bedroom with full ocean views" loading="lazy" width="1800" height="1200" />
     <div>
@@ -146,7 +149,7 @@
 
     <form id="booking-form">
       <h2 id="booking-modal-title">Check availability</h2>
-      <p>Tell us your dates and we'll confirm within 24 hours.</p>
+      <p>Tell us your dates and we'll confirm within 24 hours. All fields are required.</p>
 
       <div class="form-row">
         <div class="form-field">

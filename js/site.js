@@ -15,6 +15,14 @@
     );
   }
 
+  function setBackgroundInert(isInert) {
+    Array.from(document.body.children).forEach((el) => {
+      if (el === modal) return;
+      if (isInert) el.setAttribute("inert", "");
+      else el.removeAttribute("inert");
+    });
+  }
+
   function openModal(presetRoom) {
     lastFocused = document.activeElement;
     modal.hidden = false;
@@ -22,6 +30,7 @@
     confirmation.hidden = true;
     form.reset();
     if (presetRoom && roomSelect) roomSelect.value = presetRoom;
+    setBackgroundInert(true);
     const focusable = getFocusable();
     if (focusable.length) focusable[0].focus();
     document.addEventListener("keydown", onKeydown);
@@ -29,6 +38,7 @@
 
   function closeModal() {
     modal.hidden = true;
+    setBackgroundInert(false);
     document.removeEventListener("keydown", onKeydown);
     if (lastFocused) lastFocused.focus();
   }
