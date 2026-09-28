@@ -372,6 +372,24 @@
     updateSlider();
     requestTick();
   });
+
+  // The Experiences slider lives inside the pinned, transform-driven stage,
+  // so its real document position sits at the top of the page — a plain
+  // anchor jump to #experiences leaves the browser thinking it's already
+  // in view and never scrolls, leaving the slider hidden and translated
+  // off-screen. Scroll to the pixel offset where the engine reveals it.
+  document.querySelectorAll('a[href="#experiences"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const rect = section.getBoundingClientRect();
+      const sectionTop = rect.top + window.scrollY;
+      window.scrollTo({
+        top: sectionTop + 3350,
+        behavior: reduceMotion.matches ? "auto" : "smooth",
+      });
+    });
+  });
+
   window.addEventListener(
     "pointermove",
     (event) => {
