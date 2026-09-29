@@ -123,10 +123,14 @@
 
   function selectSlide(card) {
     const index = Number(card.dataset.slideIndex);
-    if (Number.isFinite(index)) {
-      activeSlide = index;
-      updateSlider();
+    if (!Number.isFinite(index)) return;
+    if (index === activeSlide) {
+      // Card is already centred — "Open X" has nothing further to reveal yet.
+      window.location.href = "coming-soon.html";
+      return;
     }
+    activeSlide = index;
+    updateSlider();
   }
 
   function jumpSlider(index) {
@@ -378,17 +382,29 @@
   // anchor jump to #experiences leaves the browser thinking it's already
   // in view and never scrolls, leaving the slider hidden and translated
   // off-screen. Scroll to the pixel offset where the engine reveals it.
+  function scrollToExperiences(smooth) {
+    const rect = section.getBoundingClientRect();
+    const sectionTop = rect.top + window.scrollY;
+    window.scrollTo({
+      top: sectionTop + 3350,
+      behavior: smooth && !reduceMotion.matches ? "smooth" : "auto",
+    });
+  }
+
   document.querySelectorAll('a[href="#experiences"]').forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
-      const rect = section.getBoundingClientRect();
-      const sectionTop = rect.top + window.scrollY;
-      window.scrollTo({
-        top: sectionTop + 3350,
-        behavior: reduceMotion.matches ? "auto" : "smooth",
-      });
+      scrollToExperiences(true);
     });
   });
+
+  // Same problem on page load: a cross-page link like rooms.html's
+  // "index.html#experiences" (or any direct URL with that hash) triggers
+  // the browser's native fragment jump before this script runs, landing
+  // on the same broken hidden/off-screen state. Correct it once loaded.
+  if (window.location.hash === "#experiences") {
+    scrollToExperiences(false);
+  }
 
   window.addEventListener(
     "pointermove",
